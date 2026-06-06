@@ -1,0 +1,7 @@
+CREATE DATABASE IF NOT EXISTS db_proxy;
+USE db_proxy;
+CREATE TABLE IF NOT EXISTS user (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(20),
+    age INT
+);

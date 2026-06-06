@@ -30,7 +30,7 @@ bool Connection::connect(string ip, unsigned short port, string user, string pas
     } 
     else 
     {
-        LOG("connect fail!");
+        LOG("connect fail! MySQL Error: " + string(mysql_error(_conn)));
         return false;
     }
 }

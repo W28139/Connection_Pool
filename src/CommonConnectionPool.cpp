@@ -3,6 +3,7 @@
 #include <iostream>
 #include <fstream>
 #include<thread>
+#include <chrono>
 ConnectionPool::ConnectionPool()
 {
     // 之前写的加载配置文件的函数在这里调用
@@ -117,6 +118,7 @@ void ConnectionPool::produceConnectionTask()
             else
             {
                 // 连接失败的话，释放p
+                std::this_thread::sleep_for(std::chrono::milliseconds(10));
                 delete p; 
             }
         }
@@ -175,6 +177,7 @@ std::shared_ptr<Connection> ConnectionPool::getConnection()
             std::unique_lock<std::mutex>lock(this->_queueMutex);
             pcon->refreshAliveTime();
             this->_connectionQue.push(pcon);
+            this->cv.notify_all();
         });
     _connectionQue.pop();
 
