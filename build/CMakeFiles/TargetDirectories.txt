@@ -1,0 +1,3 @@
+/home/wevix/ConnectionPool/build/CMakeFiles/connection_pool.dir
+/home/wevix/ConnectionPool/build/CMakeFiles/edit_cache.dir
+/home/wevix/ConnectionPool/build/CMakeFiles/rebuild_cache.dir
